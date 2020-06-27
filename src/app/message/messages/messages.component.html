@@ -1,0 +1,14 @@
+<p>messages work!</p>
+<ng-container>
+  <div *ngFor="let message of messages">
+    <mat-card>
+      <mat-card-title>
+        {{message.first_name}}
+      </mat-card-title>
+      <mat-card-content>
+        {{message.email}}
+      </mat-card-content>
+
+      </mat-card>
+  </div>
+</ng-container>
