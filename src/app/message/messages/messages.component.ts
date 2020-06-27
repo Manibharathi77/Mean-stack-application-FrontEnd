@@ -17,19 +17,21 @@ export class MessagesComponent implements OnInit {
 
  // messages = [{text: 'placeHolder', owner: 'myself'}, {text: 'placeHolder 2', owner: 'someone else'}];
   messages = [];
+  specificMessage: Object = [];
 
   ngOnInit(): void {
     this.getAllMessages().subscribe((messagesFromNode) => this.messages = messagesFromNode);
   }
 
-
   getAllMessages(): Observable<any>{
     return this.http.get('http://localhost:1234/messages');
   }
 
-
-
-
-
+  getMessageById(id: any) : any {
+    return this.http.get(`http://localhost:1234/messages/${id.target.value}`).subscribe((messagesFromNode) =>{
+      this.specificMessage = messagesFromNode;
+      this.specificMessage = JSON.stringify(this.specificMessage);
+    });
+  }
 
 }

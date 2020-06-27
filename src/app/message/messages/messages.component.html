@@ -1,5 +1,11 @@
 <p>messages work!</p>
 <ng-container>
+  <label>
+    <input type = text (keyup)="getMessageById($event)">
+  </label>
+  <br>
+  <p> {{specificMessage}}</p>
+  <br>
   <div *ngFor="let message of messages">
     <mat-card>
       <mat-card-title>
@@ -8,7 +14,6 @@
       <mat-card-content>
         {{message.email}}
       </mat-card-content>
-
       </mat-card>
   </div>
 </ng-container>
