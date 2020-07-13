@@ -12,12 +12,13 @@ import {Observable} from 'rxjs';
 export class MessagesComponent implements OnInit {
 
   constructor(private http: HttpClient) {
-  //  http.get();
+    //  http.get();
   }
 
- // messages = [{text: 'placeHolder', owner: 'myself'}, {text: 'placeHolder 2', owner: 'someone else'}];
+  // messages = [{text: 'placeHolder', owner: 'myself'}, {text: 'placeHolder 2', owner: 'someone else'}];
   messages = [];
   specificMessage: Object = [];
+  weatherReport: Object = [];
 
   ngOnInit(): void {
     this.getAllMessages().subscribe((messagesFromNode) => this.messages = messagesFromNode);
@@ -28,10 +29,18 @@ export class MessagesComponent implements OnInit {
   }
 
   getMessageById(id: any) : any {
-    return this.http.get(`http://localhost:1234/messages/${id.target.value}`).subscribe((messagesFromNode) =>{
-      this.specificMessage = messagesFromNode;
-      this.specificMessage = JSON.stringify(this.specificMessage);
-    });
+    return this.http.get(`http://localhost:1234/messages/${id.target.value}`)
+      .subscribe((messagesFromNode) =>{
+        this.specificMessage = messagesFromNode;
+        this.specificMessage = JSON.stringify(this.specificMessage);
+      });
+  }
+
+  getWeatherData(cityName): any{
+    return this.http.get(`http://localhost:1234/weatherDetail/${cityName}`)
+      .subscribe((data) => {
+        this.weatherReport = JSON.stringify(data);
+      });
   }
 
 }

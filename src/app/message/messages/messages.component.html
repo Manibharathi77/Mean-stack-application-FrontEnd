@@ -1,10 +1,24 @@
 <p>messages work!</p>
 <ng-container>
-  <label>
-    <input type = text (keyup)="getMessageById($event)">
-  </label>
+  <div>
+    <label> Enter id less than 100 :
+      <input type = text (keyup)="getMessageById($event)">
+    </label>
+  </div>
+
+  <div>
+    <label>
+      Enter city Name:
+    </label>
+    <input type = text #cityName>
+  </div>
+  <button mat-raised-button (click)="getWeatherData(cityName.value)">  Get weather data </button>
   <br>
   <p> {{specificMessage}}</p>
+  <br>
+
+  <br>
+  <p> {{weatherReport}}</p>
   <br>
   <div *ngFor="let message of messages">
     <mat-card>
@@ -14,6 +28,6 @@
       <mat-card-content>
         {{message.email}}
       </mat-card-content>
-      </mat-card>
+    </mat-card>
   </div>
-</ng-container>
+</ng-container>s
