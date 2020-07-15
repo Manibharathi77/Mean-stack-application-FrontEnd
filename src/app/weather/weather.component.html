@@ -1,0 +1,31 @@
+<ng-container>
+  <div class = "">
+
+
+<div class = "cityLabel">
+  <label>Enter a place name:
+    <input type = text #cityName/>
+  </label>
+</div>
+  <button mat-raised-button color="primary" (click)="getWeatherData(cityName.value)">  Get weather data </button>
+<mat-card>
+  <mat-card-header> <h3> Weather status : {{this.cityNameEntered}} </h3> </mat-card-header>
+  <mat-card-content>
+    <div *ngIf="isSearched">
+      <span class = "span-class"> Time Zone: {{weatherReport.location.timezone_id}} </span>
+    <span class = "span-class"> Weather Condition: {{weatherReport.current.weather_descriptions[0]}} </span>
+    <span class = "span-class"> Observation Time:{{weatherReport.current.observation_time}} </span>
+    <span class = "span-class"> Wind Speed: {{weatherReport.current.wind_speed}}</span>
+    <span class = "span-class"> Humidity:{{weatherReport.current.humidity}}</span>
+    <span class = "span-class"> Cloud cover:{{weatherReport.current.cloudcover}}</span>
+    <span class = "span-class"> Feels Like:{{weatherReport.current.feelslike}}</span>
+    <span class = "span-class"> Visibility:{{weatherReport.current.visibility}}</span>
+    </div>
+    <div *ngIf="!isSearched">
+      No data found. Please enter a valid city name.
+    </div>
+  </mat-card-content>
+</mat-card>
+  </div>
+</ng-container>
+
