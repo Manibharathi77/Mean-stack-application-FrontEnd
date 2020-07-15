@@ -1,4 +1,3 @@
-<p>messages work!</p>
 <ng-container>
   <div>
     <label> Enter id less than 100 :
@@ -6,28 +5,28 @@
     </label>
   </div>
 
-  <div>
-    <label>
-      Enter city Name:
-    </label>
-    <input type = text #cityName>
-  </div>
-  <button mat-raised-button (click)="getWeatherData(cityName.value)">  Get weather data </button>
   <br>
   <p> {{specificMessage}}</p>
   <br>
 
-  <br>
-  <p> {{weatherReport}}</p>
-  <br>
-  <div *ngFor="let message of messages">
-    <mat-card>
-      <mat-card-title>
-        {{message.first_name}}
-      </mat-card-title>
-      <mat-card-content>
-        {{message.email}}
-      </mat-card-content>
-    </mat-card>
-  </div>
-</ng-container>s
+  <mat-card>
+    <mat-card-header> Result for searched results: </mat-card-header>
+    <mat-card-content>
+      FirstName: {{specificMessage}}
+      Email: {{specificMessage}}
+    </mat-card-content>
+  </mat-card>
+
+<!--  <div *ngFor="let message of messages">-->
+<!--    <mat-card>-->
+<!--      <mat-card-title>-->
+<!--        {{message.first_name}}-->
+<!--      </mat-card-title>-->
+<!--      <mat-card-content>-->
+<!--        {{message.email}}-->
+<!--      </mat-card-content>-->
+<!--    </mat-card>-->
+<!--  </div>-->
+</ng-container>
+
+

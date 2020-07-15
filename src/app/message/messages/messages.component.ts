@@ -17,8 +17,7 @@ export class MessagesComponent implements OnInit {
 
   // messages = [{text: 'placeHolder', owner: 'myself'}, {text: 'placeHolder 2', owner: 'someone else'}];
   messages = [];
-  specificMessage: Object = [];
-  weatherReport: Object = [];
+  specificMessage = {};
 
   ngOnInit(): void {
     this.getAllMessages().subscribe((messagesFromNode) => this.messages = messagesFromNode);
@@ -32,14 +31,7 @@ export class MessagesComponent implements OnInit {
     return this.http.get(`http://localhost:1234/messages/${id.target.value}`)
       .subscribe((messagesFromNode) =>{
         this.specificMessage = messagesFromNode;
-        this.specificMessage = JSON.stringify(this.specificMessage);
-      });
-  }
-
-  getWeatherData(cityName): any{
-    return this.http.get(`http://localhost:1234/weatherDetail/${cityName}`)
-      .subscribe((data) => {
-        this.weatherReport = JSON.stringify(data);
+        //this.specificMessage = JSON.stringify(this.specificMessage);
       });
   }
 
