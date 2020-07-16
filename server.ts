@@ -56,12 +56,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 /**
  App routes starts here.
  */
- app.get('/', (req, res) => {
-   res.send(`./src/index.html`);
- });
+ // app.get('/', (req, res) => {
+ //   res.send(`./src/index.html`);
+ // });
 app.use(express.static(`./dist/WeatherApplication`));
-app.get(`/*`, (req, res) => {
-  res.sendFile(`index.html`, {root: `dist/WeatherApplication/`});
+app.get(`/`, (req, res) => {
+  res.sendFile(`./src/index.html`, {root: `dist/WeatherApplication/`});
 });
 
  app.get('/messages', (req, res) => {
