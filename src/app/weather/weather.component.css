@@ -1,11 +1,28 @@
+
 .mat-raised-button{
-  margin: 5px;
+  margin-left: 20px;
 }
 
 .cityLabel{
-  margin: 10px;
+  margin: 20px;
 }
 
 .span-class{
   display: block;
+  margin-left: 6px;
+
+}
+
+.heading-main{
+  display: block;
+  color: darkblue;
+  margin: 20px;
+  right: 20px;
+  font-weight: bolder !important;
+}
+
+.weather-module{
+  overflow: hidden;
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
 }
