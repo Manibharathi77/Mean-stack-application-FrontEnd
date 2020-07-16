@@ -6,7 +6,7 @@
  const express = require('express');
  const bodyParser = require('body-parser'); // Learn
  const corsOrigin = require('./server-related/corsOrigin.ts');
- const data = require('./data/MOCK_DATA.json');
+ const data = require('./src/index.html');
  const cors = require('cors');
  const app = require('express')();
  const port = process.env.PORT || 1234;
@@ -59,14 +59,23 @@ app.use(bodyParser.urlencoded({extended: true}));
  // app.get('/', (req, res) => {
  //   res.send(`./src/index.html`);
  // });
-app.use(express.static(`./dist/WeatherApplication`));
-app.get(`/`, (req, res) => {
-  res.sendFile(`./src/index.html`, {root: `dist/WeatherApplication/`});
-});
+//app.use(express.static(`./dist/WeatherApplication`));
+app.use(express.static(__dirname + '/dist'));
+// app.get('/', (req, res) => {
+//   res.sendFile('./src/index.html', {root: `dist/WeatherApplication/`});
+// });
 
  app.get('/messages', (req, res) => {
      res.send(data);
  });
+const path = require('path');
+// ...
+// For all GET requests, send back index.html
+// so that PathLocationStrategy can be used
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
+
 
  // app.get('/getMessages/:id', (req,res) => {
  //    collections.findOne({id: Number(req.params.id)},  (err, doc) => {
