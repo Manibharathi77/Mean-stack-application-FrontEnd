@@ -57,7 +57,7 @@ app.use(bodyParser.urlencoded({extended: true}));
  App routes starts here.
  */
  app.get('/', (req, res) => {
-   res.send("Hello");
+   res.send(`./src/index.html`);
  });
 
  app.get('/messages', (req, res) => {
