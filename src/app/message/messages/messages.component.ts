@@ -28,7 +28,7 @@ export class MessagesComponent implements OnInit {
   }
 
   getMessageById(id: any) : any {
-    return this.http.get(`http://localhost:1234/messages/${id.target.value}`)
+    return this.http.get(`/messages/${id.target.value}`)
       .subscribe((messagesFromNode) =>{
         this.specificMessage = messagesFromNode;
         //this.specificMessage = JSON.stringify(this.specificMessage);
