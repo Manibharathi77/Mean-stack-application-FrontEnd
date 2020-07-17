@@ -11,6 +11,8 @@
  const app = require('express')();
  const port = process.env.PORT || 1234;
  const MongoClient = require('mongodb').MongoClient;
+const path = require('path');
+
 
 const geoCode = require('./Weather-app/geoCode.ts');
 const foreCast = require('./Weather-app/foreCast.ts');
@@ -56,19 +58,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 /**
  App routes starts here.
  */
- // app.get('/', (req, res) => {
- //   res.send(`./src/index.html`);
- // });
-//app.use(express.static(`./dist/WeatherApplication`));
+
 app.use(express.static(__dirname + '/dist'));
-// app.get('/', (req, res) => {
-//   res.sendFile('./src/index.html', {root: `dist/WeatherApplication/`});
-// });
+
 
  app.get('/messages', (req, res) => {
      res.send(data);
  });
-const path = require('path');
 // ...
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
