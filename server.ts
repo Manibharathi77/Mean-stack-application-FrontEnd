@@ -68,9 +68,7 @@ app.use(express.static(__dirname + '/dist/frontend'));
 // ...
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
-});
+
 
 
  // app.get('/getMessages/:id', (req,res) => {
@@ -93,6 +91,10 @@ app.get('/weatherDetail/:cityName', (req, res) => {
          });
      });
  });
+
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + '/dist/frontend/index.html'));
+});
 
 /**
  * Weather app related express blocks ends here !!
