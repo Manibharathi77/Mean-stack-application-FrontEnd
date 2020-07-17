@@ -20,7 +20,7 @@ export class WeatherComponent implements OnInit {
 
   getWeatherData(cityName): any {
     this.cityNameEntered = cityName;
-    return this.http.get(`/weatherDetail/${cityName}`)
+    return this.http.get(`https://bharathi-practice-site.herokuapp.com//weatherDetail/${cityName}`)
       .subscribe((data) => {
         this.weatherReport = data;
         this.isSearched = true;
