@@ -59,7 +59,7 @@ app.use(bodyParser.urlencoded({extended: true}));
  App routes starts here.
  */
 
-app.use(express.static(__dirname + '/dist'));
+app.use(express.static(__dirname + '/dist/weatherapplication'));
 
 
  app.get('/messages', (req, res) => {
@@ -69,7 +69,7 @@ app.use(express.static(__dirname + '/dist'));
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/src//index.html'));
+  res.sendFile(path.join(__dirname + '/dist/weatherapplication/index.html'));
 });
 
 

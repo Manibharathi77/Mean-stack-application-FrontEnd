@@ -1,13 +1,14 @@
 {
-  "name": "WeatherApplication",
+  "name": "weatherapplication",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "build": "ng build",
     "start": "node server.ts",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postinstall": "ng build --aot --target=production"
+    "heroku-postinstall": "nng build --aot --prod"
   },
   "private": true,
   "dependencies": {
