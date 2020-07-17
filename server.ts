@@ -6,7 +6,7 @@
  const express = require('express');
  const bodyParser = require('body-parser'); // Learn
  const corsOrigin = require('./server-related/corsOrigin.ts');
- const data = require('./src/index.html');
+ const data = require('./data/MOCK_DATA.json');
  const cors = require('cors');
  const app = require('express')();
  const port = process.env.PORT || 1234;
