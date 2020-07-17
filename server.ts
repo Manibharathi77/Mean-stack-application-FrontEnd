@@ -69,7 +69,7 @@ app.use(express.static(__dirname + '/dist'));
 // For all GET requests, send back index.html
 // so that PathLocationStrategy can be used
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/dist/index.html'));
+  res.sendFile(path.join(__dirname + '/dist/src//index.html'));
 });
 
 
@@ -133,6 +133,6 @@ app.route('/route')
     console.log(`listening on port : ${port}`);
  });
 
-app.get('*', (req, res) => {
-  res.sendFile(`./src/index.html`); // load the single view file (angular will handle the page changes on the front-end)
-});
+// app.get('*', (req, res) => {
+//   res.sendFile(`./src/index.html`); // load the single view file (angular will handle the page changes on the front-end)
+// });
